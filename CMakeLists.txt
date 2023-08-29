@@ -33,4 +33,19 @@ endif(NOT HOOT_BUILD_TYPE)
 
 message("[configure] HOOT_BUILD_TYPE = ${HOOT_BUILD_TYPE}")
 
+set(HOOT_BUILD_ARCHIVE "${HOOT_BUILD}/${HOOT_TARGET_NAME}/${HOOT_BUILD_TYPE}" CACHE INTERNAL "")
+set(HOOT_BUILD_INCLUDE "${HOOT_BUILD_ARCHIVE}/include" CACHE INTERNAL "")
+
+message("[configure] HOOT_BUILD_ARCHIVE = ${HOOT_BUILD_ARCHIVE}")
+message("[configure] HOOT_BUILD_INCLUDE = ${HOOT_BUILD_INCLUDE}")
+
 include(${HOOT_TARGET_INCLUDE}/target.cmake)
+
+add_compile_definitions(
+    -DHOOT_TARGET_NAME="${HOOT_TARGET_NAME}"
+    -DHOOT_BUILD_TYPE="${HOOT_BUILD_TYPE}"
+    $<$<CONFIG:DEBUG>:-DDEBUG=1>
+    $<$<CONFIG:RELEASE>:-DRELEASE=1>
+)
+
+add_subdirectory(library/hoot)

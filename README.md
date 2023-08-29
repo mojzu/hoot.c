@@ -30,3 +30,9 @@ To run the build system for a preset.
 cmake --preset host-debug
 (cd cmake/host-debug && make install)
 ```
+
+Library headers and static archive build system outputs are placed in the [build](build) directory.
+
+Libraries are added to the build system as subdirectories in [CMakeLists.txt](CMakeLists.txt). The target directory may contain target specific library headers for configuration such as [target/host/hoot_configuration.h](target/host/hoot_configuration.h).
+
+Each library directory contains a CMake file such as [library/hoot/CMakeLists.txt](library/hoot/CMakeLists.txt). This file may use variables defined in the root CMake build system or the targets CMake file.
