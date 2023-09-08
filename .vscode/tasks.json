@@ -1,0 +1,240 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "script.host",
+            "group": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-P",
+                "${workspaceFolder}/script/host.cmake"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "script.dependency",
+            "group": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-P",
+                "${workspaceFolder}/script/dependency.cmake"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/dependency"
+            }
+        },
+        {
+            "label": "script.build_type",
+            "group": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-P",
+                "${workspaceFolder}/script/build_type.cmake"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "configure.host-debug",
+            "group": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "host-debug"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "configure.host-release",
+            "group": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "host-release"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        // Update this with new debug/release configure targets
+        {
+            "label": "configure.all-debug",
+            "group": "build",
+            "dependsOn": [
+                "configure.host-debug"
+            ]
+        },
+        {
+            "label": "configure.all-release",
+            "group": "build",
+            "dependsOn": [
+                "configure.host-release"
+            ]
+        },
+        {
+            "label": "configure",
+            "group": "build",
+            "dependsOn": [
+                "configure.all-debug",
+                "configure.all-release",
+            ]
+        },
+        {
+            "label": "build.host-debug",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "install",
+                "VERBOSE=1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cmake/host-debug"
+            }
+        },
+        {
+            "label": "build.host-release",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "install",
+                "VERBOSE=1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cmake/host-release"
+            }
+        },
+        // Update this with new debug/release build targets
+        {
+            "label": "build.all-debug",
+            "group": "build",
+            "dependsOn": [
+                "build.host-debug"
+            ]
+        },
+        {
+            "label": "build.all-release",
+            "group": "build",
+            "dependsOn": [
+                "build.host-release"
+            ]
+        },
+        {
+            "label": "build",
+            "group": "build",
+            "dependsOn": [
+                "build.all-debug",
+                "build.all-release",
+            ]
+        },
+        {
+            "label": "example.configure.host-debug",
+            "group": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "host-debug"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/example/host"
+            }
+        },
+        {
+            "label": "example.configure.host-release",
+            "group": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "host-release"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/example/host"
+            }
+        },
+        // Update this with new debug/release example configure targets
+        {
+            "label": "example.configure.all-debug",
+            "group": "build",
+            "dependsOn": [
+                "example.configure.host-debug"
+            ]
+        },
+        {
+            "label": "example.configure.all-release",
+            "group": "build",
+            "dependsOn": [
+                "example.configure.host-release"
+            ]
+        },
+        {
+            "label": "example.configure",
+            "group": "build",
+            "dependsOn": [
+                "example.configure.all-debug",
+                "example.configure.all-release"
+            ]
+        },
+        {
+            "label": "example.build.host-debug",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "install",
+                "VERBOSE=1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cmake/host-debug-example"
+            }
+        },
+        {
+            "label": "example.build.host-release",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "install",
+                "VERBOSE=1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cmake/host-release-example"
+            }
+        },
+        // Update this with new debug/release example build targets
+        {
+            "label": "example.build.all-debug",
+            "group": "build",
+            "dependsOn": [
+                "example.build.host-debug"
+            ]
+        },
+        {
+            "label": "example.build.all-release",
+            "group": "build",
+            "dependsOn": [
+                "example.build.host-release"
+            ]
+        },
+        {
+            "label": "example.build",
+            "group": "build",
+            "dependsOn": [
+                "example.build.all-debug",
+                "example.build.all-release"
+            ]
+        },
+    ]
+}

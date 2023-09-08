@@ -24,7 +24,7 @@ Each target is defined in the [target](target) directory, and must contain a CMa
 
 The target is passed to the build system with `HOOT_TARGET_NAME`, the build type with `CMAKE_BUILD_TYPE`. These are defined in presets in the [CMakePresets.json](CMakePresets.json) file.
 
-To run the build system for a preset.
+To run the build system for a preset (others can be found in [.vscode/tasks.json](.vscode/tasks.json)).
 
 ```shell
 cmake --preset host-debug
@@ -39,7 +39,7 @@ Each library directory contains a CMake file such as [library/hoot/CMakeLists.tx
 
 Examples for targets can be found in the [example](example) directory. Each target has its own CMake file and presets such as [example/host/CMakeLists.txt](example/host/CMakeLists.txt) and [example/host/CMakePresets.json](example/host/CMakePresets.json).
 
-To run the build system for an example.
+To run the build system for an example (others can be found in [.vscode/tasks.json](.vscode/tasks.json)).
 
 ```shell
 (cd example/host && cmake --preset host-debug)
