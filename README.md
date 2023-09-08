@@ -37,6 +37,15 @@ Libraries are added to the build system as subdirectories in the target CMake fi
 
 Each library directory contains a CMake file such as [library/hoot/CMakeLists.txt](library/hoot/CMakeLists.txt). This file may use variables defined in the CMake build system or the targets CMake file.
 
+Examples for targets can be found in the [example](example) directory. Each target has its own CMake file and presets such as [example/host/CMakeLists.txt](example/host/CMakeLists.txt) and [example/host/CMakePresets.json](example/host/CMakePresets.json).
+
+To run the build system for an example.
+
+```shell
+(cd example/host && cmake --preset host-debug)
+(cd cmake/host-debug-example && make install VERBOSE=1)
+```
+
 ### Targets
 
 #### host
