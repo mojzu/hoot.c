@@ -24,12 +24,14 @@ Each target is defined in the [target](target) directory, and must contain a CMa
 
 The target is passed to the build system with `HOOT_TARGET_NAME`, the build type with `CMAKE_BUILD_TYPE`. These are defined in presets in the [CMakePresets.json](CMakePresets.json) file.
 
-To run the build system for a preset (others can be found in [.vscode/tasks.json](.vscode/tasks.json)).
+To run the build system for a preset.
 
 ```shell
 cmake --preset host-debug
 (cd cmake/host-debug && make install VERBOSE=1)
 ```
+
+Tasks for each preset can be found in [.vscode/tasks.json](.vscode/tasks.json), all presets can be run using the `configure` and `build` tasks.
 
 Library headers and static archive build system outputs are placed in the [build](build) directory.
 
@@ -39,12 +41,14 @@ Each library directory contains a CMake file such as [library/hoot/CMakeLists.tx
 
 Examples for targets can be found in the [example](example) directory. Each target has its own CMake file and presets such as [example/host/CMakeLists.txt](example/host/CMakeLists.txt) and [example/host/CMakePresets.json](example/host/CMakePresets.json).
 
-To run the build system for an example (others can be found in [.vscode/tasks.json](.vscode/tasks.json)).
+To run the build system for an example.
 
 ```shell
 (cd example/host && cmake --preset host-debug)
 (cd cmake/host-debug-example && make install VERBOSE=1)
 ```
+
+Tasks for each example preset can be found in [.vscode/tasks.json](.vscode/tasks.json), all example presets can be run using the `example.configure` and `example.build` tasks.
 
 ### Targets
 
