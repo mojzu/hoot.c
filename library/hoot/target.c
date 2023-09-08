@@ -14,8 +14,8 @@ const char* const BUILD_TYPE = HOOT_BUILD_TYPE;
 
 #if (DEBUG == 1)
 const bool IS_DEBUG = true;
-#endif
-
-#if (RELEASE == 1)
+#elif (RELEASE == 1)
 const bool IS_RELEASE = true;
+#else
+#error "DEBUG or RELEASE must be defined"
 #endif
