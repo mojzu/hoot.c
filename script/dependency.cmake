@@ -1,6 +1,7 @@
 include(FetchContent)
 include(../script/host.cmake)
 
+# https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
 if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Linux")
     if(${CMAKE_HOST_SYSTEM_ARCH} STREQUAL "aarch64")
         message("[dependency] arm-gnu-toolchain (12.3.rel1-aarch64-arm-none-eabi)")

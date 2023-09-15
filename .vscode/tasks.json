@@ -66,19 +66,47 @@
                 "cwd": "${workspaceFolder}"
             }
         },
+        {
+            "label": "configure.microbit-debug",
+            "group": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "microbit-debug"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "configure.microbit-release",
+            "group": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "microbit-release"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
         // Update this with new debug/release configure targets
         {
             "label": "configure.all-debug",
             "group": "build",
             "dependsOn": [
-                "configure.host-debug"
+                "configure.host-debug",
+                "configure.microbit-debug"
             ]
         },
         {
             "label": "configure.all-release",
             "group": "build",
             "dependsOn": [
-                "configure.host-release"
+                "configure.host-release",
+                "configure.microbit-release"
             ]
         },
         {
@@ -115,19 +143,47 @@
                 "cwd": "${workspaceFolder}/cmake/host-release"
             }
         },
+        {
+            "label": "build.microbit-debug",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "install",
+                "VERBOSE=1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cmake/microbit-debug"
+            }
+        },
+        {
+            "label": "build.microbit-release",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "install",
+                "VERBOSE=1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cmake/microbit-release"
+            }
+        },
         // Update this with new debug/release build targets
         {
             "label": "build.all-debug",
             "group": "build",
             "dependsOn": [
-                "build.host-debug"
+                "build.host-debug",
+                "build.microbit-debug"
             ]
         },
         {
             "label": "build.all-release",
             "group": "build",
             "dependsOn": [
-                "build.host-release"
+                "build.host-release",
+                "build.microbit-release"
             ]
         },
         {

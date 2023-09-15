@@ -31,7 +31,7 @@ cmake --preset host-debug
 (cd cmake/host-debug && make install VERBOSE=1)
 ```
 
-Tasks for each preset can be found in [.vscode/tasks.json](.vscode/tasks.json), all presets can be run using the `configure` and `build` tasks.
+VSCode tasks for each preset can be found in [.vscode/tasks.json](.vscode/tasks.json), all presets can be run using the `configure` and `build` tasks.
 
 Library headers and static archive build system outputs are placed in the [build](build) directory.
 
@@ -48,10 +48,25 @@ To run the build system for an example.
 (cd cmake/host-debug-example && make install VERBOSE=1)
 ```
 
-Tasks for each example preset can be found in [.vscode/tasks.json](.vscode/tasks.json), all example presets can be run using the `example.configure` and `example.build` tasks.
+VSCode tasks for each example preset can be found in [.vscode/tasks.json](.vscode/tasks.json), all example presets can be run using the `example.configure` and `example.build` tasks.
 
 ### Targets
+
+New targets can be added with the following steps.
+
+- Add toolchain CMake file to [toolchain](toolchain) directory
+- Add presets to `.configurePresets` in [CMakePresets.json](CMakePresets.json) file
+- Add VSCode tasks for CMake configure and build to `.tasks` in [.vscode/tasks.json](.vscode/tasks.json) file
+- Add `CMakeLists.txt` file in `target/$NAME/CMakeLists.txt`
+- Add target library headers to `target/$NAME` directory
+- Update documentation
 
 #### host
 
 Compiles for the host system (Linux, macOS) target.
+
+#### microbit
+
+Compiles for the [BBC micro:bit](https://microbit.org/) target.
+
+Uses ARM GNU toolchain defined in [toolchain/arm-none-eabi.cmake](toolchain/arm-none-eabi.cmake).

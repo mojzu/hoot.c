@@ -25,6 +25,28 @@
                 "CMAKE_BUILD_TYPE": "release"
             },
             "environment": {}
+        },
+        {
+            "name": "microbit-debug",
+            "generator": "Unix Makefiles",
+            "toolchainFile": "${sourceDir}/toolchain/arm-none-eabi.cmake",
+            "binaryDir": "${sourceDir}/cmake/microbit-debug",
+            "cacheVariables": {
+                "HOOT_TARGET_NAME": "microbit",
+                "CMAKE_BUILD_TYPE": "debug"
+            },
+            "environment": {}
+        },
+        {
+            "name": "microbit-release",
+            "generator": "Unix Makefiles",
+            "toolchainFile": "${sourceDir}/toolchain/arm-none-eabi.cmake",
+            "binaryDir": "${sourceDir}/cmake/microbit-release",
+            "cacheVariables": {
+                "HOOT_TARGET_NAME": "microbit",
+                "CMAKE_BUILD_TYPE": "release"
+            },
+            "environment": {}
         }
     ]
 }
