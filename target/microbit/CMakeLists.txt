@@ -6,13 +6,8 @@ add_compile_options(
     -mno-unaligned-access
     -ffunction-sections -fdata-sections -fno-strict-aliasing
     -fno-builtin -fshort-enums
+    -Os -g3 -flto
 )
-
-if(${HOOT_BUILD_TYPE} STREQUAL ${HOOT_BUILD_TYPE_DEBUG})
-    add_compile_options(-O3 -g3)
-elseif(${HOOT_BUILD_TYPE} STREQUAL ${HOOT_BUILD_TYPE_RELEASE})
-    add_compile_options(-Os -flto)
-endif()
 
 # Add libraries as subdirectories for compilation
 add_subdirectory(${HOOT_LIBRARY}/hoot ${CMAKE_CURRENT_BINARY_DIR}/hoot)

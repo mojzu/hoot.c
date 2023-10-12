@@ -18,17 +18,17 @@ Static library and header build outputs are managed using a [CMake](https://cmak
 
 The build system file is [CMakeLists.txt](CMakeLists.txt).
 
-Targets are the intended platform for the libraries to be used, for example the host system (Linux, macOS) or an embedded system (micro:bit). The build type can be used to produce `debug` and `release` outputs.
+Targets are the intended platform for the libraries to be used, for example the host system (Linux, macOS) or an embedded system (micro:bit).
 
 Each target is defined in the [target](target) directory, and must contain a CMake file such as [target/host/CMakeLists.txt](target/host/CMakeLists.txt).
 
-The target is passed to the build system with `HOOT_TARGET_NAME`, the build type with `CMAKE_BUILD_TYPE`. These are defined in presets in the [CMakePresets.json](CMakePresets.json) file.
+The target is passed to the build system with `HOOT_TARGET_NAME`. These are defined in presets in the [CMakePresets.json](CMakePresets.json) file.
 
 To run the build system for a preset.
 
 ```shell
-cmake --preset host-debug
-(cd cmake/host-debug && make install VERBOSE=1)
+cmake --preset host
+(cd cmake/host && make install VERBOSE=1)
 ```
 
 VSCode tasks for each preset can be found in [.vscode/tasks.json](.vscode/tasks.json), all presets can be run using the `configure` and `build` tasks.
@@ -44,8 +44,8 @@ Examples for targets can be found in the [example](example) directory. Each targ
 To run the build system for an example.
 
 ```shell
-(cd example/host && cmake --preset host-debug)
-(cd cmake/host-debug-example && make install VERBOSE=1)
+(cd example/host && cmake --preset host)
+(cd cmake/host-example && make install VERBOSE=1)
 ```
 
 VSCode tasks for each example preset can be found in [.vscode/tasks.json](.vscode/tasks.json), all example presets can be run using the `example.configure` and `example.build` tasks.

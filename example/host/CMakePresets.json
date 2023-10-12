@@ -7,22 +7,11 @@
     },
     "configurePresets": [
         {
-            "name": "host-debug",
+            "name": "host",
             "generator": "Unix Makefiles",
-            "binaryDir": "${sourceDir}/../../cmake/host-debug-example",
+            "binaryDir": "${sourceDir}/../../cmake/host-example",
             "cacheVariables": {
-                "HOOT_TARGET_NAME": "host",
-                "CMAKE_BUILD_TYPE": "debug"
-            },
-            "environment": {}
-        },
-        {
-            "name": "host-release",
-            "generator": "Unix Makefiles",
-            "binaryDir": "${sourceDir}/../../cmake/host-release-example",
-            "cacheVariables": {
-                "HOOT_TARGET_NAME": "host",
-                "CMAKE_BUILD_TYPE": "release"
+                "HOOT_TARGET_NAME": "host"
             },
             "environment": {}
         }

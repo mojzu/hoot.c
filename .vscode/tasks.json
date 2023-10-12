@@ -28,97 +28,42 @@
             }
         },
         {
-            "label": "script.build_type",
-            "group": "build",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "-P",
-                "${workspaceFolder}/script/build_type.cmake"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "label": "configure.host-debug",
+            "label": "configure.host",
             "group": "build",
             "type": "shell",
             "command": "cmake",
             "args": [
                 "--preset",
-                "host-debug"
+                "host"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
             }
         },
         {
-            "label": "configure.host-release",
+            "label": "configure.microbit",
             "group": "build",
             "type": "shell",
             "command": "cmake",
             "args": [
                 "--preset",
-                "host-release"
+                "microbit"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
             }
         },
-        {
-            "label": "configure.microbit-debug",
-            "group": "build",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--preset",
-                "microbit-debug"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "label": "configure.microbit-release",
-            "group": "build",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--preset",
-                "microbit-release"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        // Update this with new debug/release configure targets
-        {
-            "label": "configure.all-debug",
-            "group": "build",
-            "dependsOn": [
-                "configure.host-debug",
-                "configure.microbit-debug"
-            ]
-        },
-        {
-            "label": "configure.all-release",
-            "group": "build",
-            "dependsOn": [
-                "configure.host-release",
-                "configure.microbit-release"
-            ]
-        },
+        // Update this with new configure targets
         {
             "label": "configure",
             "group": "build",
             "dependsOn": [
-                "configure.all-debug",
-                "configure.all-release",
+                "configure.host",
+                "configure.microbit"
             ]
         },
         {
-            "label": "build.host-debug",
+            "label": "build.host",
             "group": "build",
             "type": "shell",
             "command": "make",
@@ -127,11 +72,11 @@
                 "VERBOSE=1"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/cmake/host-debug"
+                "cwd": "${workspaceFolder}/cmake/host"
             }
         },
         {
-            "label": "build.host-release",
+            "label": "build.microbit",
             "group": "build",
             "type": "shell",
             "command": "make",
@@ -140,111 +85,41 @@
                 "VERBOSE=1"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/cmake/host-release"
+                "cwd": "${workspaceFolder}/cmake/microbit"
             }
         },
-        {
-            "label": "build.microbit-debug",
-            "group": "build",
-            "type": "shell",
-            "command": "make",
-            "args": [
-                "install",
-                "VERBOSE=1"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/cmake/microbit-debug"
-            }
-        },
-        {
-            "label": "build.microbit-release",
-            "group": "build",
-            "type": "shell",
-            "command": "make",
-            "args": [
-                "install",
-                "VERBOSE=1"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/cmake/microbit-release"
-            }
-        },
-        // Update this with new debug/release build targets
-        {
-            "label": "build.all-debug",
-            "group": "build",
-            "dependsOn": [
-                "build.host-debug",
-                "build.microbit-debug"
-            ]
-        },
-        {
-            "label": "build.all-release",
-            "group": "build",
-            "dependsOn": [
-                "build.host-release",
-                "build.microbit-release"
-            ]
-        },
+        // Update this with new build targets
         {
             "label": "build",
             "group": "build",
             "dependsOn": [
-                "build.all-debug",
-                "build.all-release",
+                "build.host",
+                "build.microbit"
             ]
         },
         {
-            "label": "example.configure.host-debug",
+            "label": "example.configure.host",
             "group": "build",
             "type": "shell",
             "command": "cmake",
             "args": [
                 "--preset",
-                "host-debug"
+                "host"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/example/host"
             }
         },
-        {
-            "label": "example.configure.host-release",
-            "group": "build",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--preset",
-                "host-release"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/example/host"
-            }
-        },
-        // Update this with new debug/release example configure targets
-        {
-            "label": "example.configure.all-debug",
-            "group": "build",
-            "dependsOn": [
-                "example.configure.host-debug"
-            ]
-        },
-        {
-            "label": "example.configure.all-release",
-            "group": "build",
-            "dependsOn": [
-                "example.configure.host-release"
-            ]
-        },
+        // Update this with new example configure targets
         {
             "label": "example.configure",
             "group": "build",
             "dependsOn": [
-                "example.configure.all-debug",
-                "example.configure.all-release"
+                "example.configure.host"
             ]
         },
         {
-            "label": "example.build.host-debug",
+            "label": "example.build.host",
             "group": "build",
             "type": "shell",
             "command": "make",
@@ -253,43 +128,15 @@
                 "VERBOSE=1"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/cmake/host-debug-example"
+                "cwd": "${workspaceFolder}/cmake/host-example"
             }
         },
-        {
-            "label": "example.build.host-release",
-            "group": "build",
-            "type": "shell",
-            "command": "make",
-            "args": [
-                "install",
-                "VERBOSE=1"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/cmake/host-release-example"
-            }
-        },
-        // Update this with new debug/release example build targets
-        {
-            "label": "example.build.all-debug",
-            "group": "build",
-            "dependsOn": [
-                "example.build.host-debug"
-            ]
-        },
-        {
-            "label": "example.build.all-release",
-            "group": "build",
-            "dependsOn": [
-                "example.build.host-release"
-            ]
-        },
+        // Update this with new example build targets
         {
             "label": "example.build",
             "group": "build",
             "dependsOn": [
-                "example.build.all-debug",
-                "example.build.all-release"
+                "example.build.host"
             ]
         },
     ]

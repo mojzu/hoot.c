@@ -7,44 +7,21 @@
     },
     "configurePresets": [
         {
-            "name": "host-debug",
+            "name": "host",
             "generator": "Unix Makefiles",
-            "binaryDir": "${sourceDir}/cmake/host-debug",
+            "binaryDir": "${sourceDir}/cmake/host",
             "cacheVariables": {
-                "HOOT_TARGET_NAME": "host",
-                "CMAKE_BUILD_TYPE": "debug"
+                "HOOT_TARGET_NAME": "host"
             },
             "environment": {}
         },
         {
-            "name": "host-release",
-            "generator": "Unix Makefiles",
-            "binaryDir": "${sourceDir}/cmake/host-release",
-            "cacheVariables": {
-                "HOOT_TARGET_NAME": "host",
-                "CMAKE_BUILD_TYPE": "release"
-            },
-            "environment": {}
-        },
-        {
-            "name": "microbit-debug",
+            "name": "microbit",
             "generator": "Unix Makefiles",
             "toolchainFile": "${sourceDir}/toolchain/arm-none-eabi.cmake",
-            "binaryDir": "${sourceDir}/cmake/microbit-debug",
+            "binaryDir": "${sourceDir}/cmake/microbit",
             "cacheVariables": {
-                "HOOT_TARGET_NAME": "microbit",
-                "CMAKE_BUILD_TYPE": "debug"
-            },
-            "environment": {}
-        },
-        {
-            "name": "microbit-release",
-            "generator": "Unix Makefiles",
-            "toolchainFile": "${sourceDir}/toolchain/arm-none-eabi.cmake",
-            "binaryDir": "${sourceDir}/cmake/microbit-release",
-            "cacheVariables": {
-                "HOOT_TARGET_NAME": "microbit",
-                "CMAKE_BUILD_TYPE": "release"
+                "HOOT_TARGET_NAME": "microbit"
             },
             "environment": {}
         }
